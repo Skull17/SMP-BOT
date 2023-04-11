@@ -1,0 +1,49 @@
+//APPLICAZIONE CREATA DA: Tansbu#7814
+//SERVER IN USO: https://discord.gg/hCxfETJmhx
+//DATA DI CREAZIONE: 11/04/2023
+//ULTIMA MODIFICA: 11/04/2023
+//RISORSE UTILI: https://gist.github.com/koad/316b265a91d933fd1b62dddfcc3ff584
+
+//INDEX.JS É IL FILE PRIMCIPALE DEL BOT, CONTIENE TUTTA LA SUA PROGRAMMAZIONE
+
+//DICHIARA LA LIBRERIA DISCORD.JS
+const Discord = require("discord.js")
+
+//DICHIARA GLI INTENTS, CIOÉ I DATI A CUI IL BOT HA L'ACCESSO
+const { Client, GatewayIntentBits } = require('discord.js');
+const client = new Discord.Client({
+    intents: [ //ELENCA GLI INTENTS
+        //ACHTUNG!- GLI INTENTS PRIVILEGIATI SONO I PRIMI 3, SONO I PRINCIPALI
+        GatewayIntentBits.GuildMembers,
+        GatewayIntentBits.GuildPresences,
+        GatewayIntentBits.MessageContent,
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.GuildBans,
+        GatewayIntentBits.GuildEmojisAndStickers,
+        GatewayIntentBits.GuildIntegrations,
+        GatewayIntentBits.GuildInvites,
+        GatewayIntentBits.GuildMessageReactions,
+        GatewayIntentBits.GuildMessageTyping,
+        GatewayIntentBits.GuildScheduledEvents,
+        GatewayIntentBits.GuildVoiceStates,
+        GatewayIntentBits.GuildWebhooks,
+        GatewayIntentBits.DirectMessages,
+        GatewayIntentBits.DirectMessageTyping,
+        GatewayIntentBits.DirectMessageReactions,
+    ]
+});
+
+//DICHIARA IL TOKEN DEL BOT - ACHTUNG! - NON CONDIVIDERLO CON NESSUNO
+client.login("TOKEN")
+
+//SCRIVE NELLA CONSOLE IL MESSAGGIO "Bot Online" - (LA CONSOLE IN VSCODE SI APRE CLICCANDO: TERMINALE E POI NUOVO TERMINALE IN ALTO)
+client.on("ready", () => {
+    console.log("Bot Online")
+})
+
+client.on("messageCreate", function(message){
+    if (message.content == "smp!info") {
+    message.channel.send("Questo BOT è in fase di sviluppo. Se vuoi rimanere aggiornato sullo sviluppo visita il nostro progetto GitHub:https://github.com/Skull17/SMP-BOT.git")
+    }
+    })
