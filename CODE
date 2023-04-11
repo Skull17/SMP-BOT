@@ -42,6 +42,7 @@ client.on("ready", () => {
     console.log("Bot Online")
 })
 
+//CREA IL COMANDO "smp!info" E INVIA UN MESSAGGIO
 client.on("messageCreate", function(message){
     if (message.content == "smp!info") {
     message.channel.send("Questo BOT è in fase di sviluppo. Se vuoi rimanere aggiornato sullo sviluppo visita il nostro progetto GitHub:https://github.com/Skull17/SMP-BOT.git")
