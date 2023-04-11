@@ -46,6 +46,11 @@ client.on("ready", () => {
 //CREA IL COMANDO "smp!info" E INVIA UN MESSAGGIO
 client.on("messageCreate", function(message){
     if (message.content == "smp!info") {
-    message.channel.send("Questo BOT è in fase di sviluppo. Se vuoi rimanere aggiornato sullo sviluppo visita il nostro progetto GitHub:https://github.com/Skull17/SMP-BOT.git")
+        var embed = new Discord.EmbedBuilder()
+            .setTitle("INFORMAZIONI DEL BOT")
+            .setDescription("Questo BOT è in fase di sviluppo. Se vuoi rimanere aggiornato sullo sviluppo visita il nostro progetto GitHub:https://github.com/Skull17/SMP-BOT.git")
+            .setColor(5763719)
+
+        message.channel.send({ embeds: [embed] })
     }
-    })
+})
